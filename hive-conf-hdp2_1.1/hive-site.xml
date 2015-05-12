@@ -1,0 +1,396 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+<property>
+  <name>hive.exec.max.dynamic.partitions</name>
+  <value>10000</value>
+</property>
+<property>
+  <name>hive.exec.max.dynamic.partitions.pernode</name>
+  <value>10000</value>
+</property>
+
+<property>
+  <name>hive.tez.container.size</name>
+  <value>1000</value>
+  <!--
+  <value>2048</value>
+  -->
+</property>
+
+
+<property>
+  <name>hive.default.fileformat</name>
+  <value>ORC</value>
+</property>
+<property>
+  <name>hive.convert.join.bucket.mapjoin.tez</name>
+  <value>true</value>
+</property>
+
+
+<property>
+  <name>hive.exec.dynamic.partition.mode</name>
+  <value>nonstrict</value>
+</property>
+<property>
+  <name>hive.stats.retries.max</name>
+  <value>3</value>
+</property>
+<property>
+  <name>hive.stats.retries.wait</name>
+  <value>500</value>
+</property>
+
+
+<!--
+<property>
+  <name>hive.vectorized.groupby.maxentries</name>
+  <value>10240</value>
+</property>
+-->
+<property>
+  <name>hive.exec.compress.intermediate</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.intermediate.compression.codec</name>
+  <value>org.apache.hadoop.io.compress.SnappyCodec</value>
+</property>
+
+
+<property>
+  <name>hive.jar.directory</name>
+  <value>/user/hduser/.hiveJars</value>
+</property>
+
+<property>
+  <name>hive.optimize.index.filter</name>
+  <value>true</value>
+</property>
+<property>
+  <name>hive.optimize.bucketmapjoin</name>
+  <value>true</value>
+</property>
+<property>
+  <name>hive.optimize.bucketmapjoin.sortedmerge</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.optimize.index.groupby</name>
+  <value>true</value>
+</property>
+<property>
+  <name>hive.auto.convert.sortmerge.join</name>
+  <value>true</value>
+</property>
+<property>
+  <name>hive.enforce.bucketing</name>
+  <value>true</value>
+</property>
+<property>
+  <name>hive.enforce.sorting</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.vectorized.execution.reduce.enabled</name>
+  <value>true</value>
+</property>
+
+<!--
+<property>
+  <name>hive.metastore.try.direct.sql</name>
+  <value>false</value>
+  <description>bug avec notre version de postgres sur certaines requetes</description>
+</property>
+<property>
+  <name>hive.metastore.try.direct.sql.ddl</name>
+  <value>false</value>
+  <description>bug avec notre version de postgres sur certaines requetes</description>
+</property>
+<property>
+  <name>javax.jdo.option.ConnectionURL</name>
+  <value>jdbc:postgresql://nc-h07:5432/metastore</value>
+</property>
+ 
+<property>
+  <name>javax.jdo.option.ConnectionDriverName</name>
+  <value>org.postgresql.Driver</value>
+</property>
+-->
+<property>
+  <name>hive.metastore.try.direct.sql</name>
+  <value>true</value>
+</property>
+<property>
+  <name>hive.metastore.try.direct.sql.ddl</name>
+  <value>true</value>
+</property>
+<property>
+  <name>javax.jdo.option.ConnectionURL</name>
+  <value>jdbc:mysql://nc-h07/metastore?protocol=tcp</value>
+</property>
+<property>
+  <name>javax.jdo.option.ConnectionDriverName</name>
+  <value>com.mysql.jdbc.Driver</value>
+</property>
+ 
+<property>
+  <name>javax.jdo.option.ConnectionUserName</name>
+  <value>hiveuser</value>
+</property>
+ 
+<property>
+  <name>javax.jdo.option.ConnectionPassword</name>
+  <value>mvsmt4521</value>
+</property>
+ 
+<property>
+    <name>datanucleus.autoStartMechanism</name>
+    <value>SchemaTable</value>
+  </property> 
+  
+<property>
+    <name>hive.metastore.warehouse.dir</name>
+    <value>hdfs://nc-h07/user/hive/warehouse</value>
+  </property>
+
+<property>
+  <name>hive.metastore.uris</name>
+  <value>thrift://nc-h07:9083</value>
+  <description>IP address (or fully-qualified domain name) and port of the metastore host</description>
+</property>
+
+<property>
+  <name>hive.server2.authentication</name>
+  <value>NONE</value>
+  <description>
+    Client authentication types.
+       NONE: no authentication check
+       LDAP: LDAP/AD based authentication
+       KERBEROS: Kerberos/GSSAPI authentication
+       CUSTOM: Custom authentication provider
+               (Use with property hive.server2.custom.authentication.class)
+  </description>
+</property>
+
+<property>
+  <name>hive.server2.enable.doAs</name>
+  <description>Enable user impersonation for HiveServer2</description>
+  <value>true</value>
+</property>
+
+<!-- ENABLE STATS ON POSTGRES fs / jdbc:postgresql-->
+<!--
+<property>
+  <name>hive.stats.dbclass</name>
+  <value>jdbc:postgresql</value>
+  <description>The default database that stores temporary hive statistics.</description>
+</property>
+
+<property>
+  <name>hive.stats.jdbcdriver</name>
+  <value>org.postgresql.Driver</value>
+  <description>The JDBC driver for the database that stores temporary hive statistics.</description>
+</property>
+
+<property>
+  <name>hive.stats.dbconnectionstring</name>
+  <value>jdbc:postgresql://nc-h07:5432/metastore?user=hiveuser&amp;password=mvsmt4521</value>
+  <description>The default connection string for the database that stores temporary hive statistics.</description>
+</property>
+-->
+<property>
+  <name>hive.stats.dbclass</name>
+  <value>fs</value>
+  <description>The default database that stores temporary hive statistics.</description>
+</property>
+
+<property>
+  <name>hive.stats.jdbcdriver</name>
+  <value>com.mysql.jdbc.Driver</value>
+  <description>The JDBC driver for the database that stores temporary hive statistics.</description>
+</property>
+
+<property>
+  <name>hive.stats.dbconnectionstring</name>
+  <value>jdbc:mysql://nc-h07/metastore?user=hiveuser&amp;password=mvsmt4521</value>
+  <description>The default connection string for the database that stores temporary hive statistics.</description>
+</property>
+
+
+
+<property>
+  <name>hive.stats.collect.tablekeys</name>
+  <value>true</value>
+  <description>Whether join and group by keys on tables are derived and maintained in the QueryPlan.
+    This is useful to identify how tables are accessed and to determine if they should be bucketed.
+  </description>
+</property>
+
+<property>
+  <name>hive.stats.collect.scancols</name>
+  <value>true</value>
+  <description>Whether column accesses are tracked in the QueryPlan.
+    This is useful to identify how tables are accessed and to determine if there are wasted columns that can be trimmed.
+  </description>
+</property>
+
+<!--
+<property>
+  <name>hive.stats.jdbc.timeout</name>
+  <value>0</value>
+  <description>Laisser a 0 pour postgres</description>
+</property>
+-->
+
+
+<!-- scale db features -->
+<property>
+  <name>hive.stats.autogather</name>
+  <value>true</value>
+</property>
+<property>
+  <name>hive.compute.query.using.stats</name>
+  <value>true</value>
+</property>
+<property>
+  <name>hive.stats.fetch.column.stats</name>
+  <value>true</value>
+</property>
+<property>
+  <name>hive.stats.reliable</name>
+  <value>true</value>
+</property>
+<property>
+  <name>hive.stats.fetch.partition.stats</name>
+  <value>true</value>
+</property>
+
+<!-- this option is only provided on CBO branch -->
+<property>
+  <name>hive.cbo.enable</name>
+  <value>true</value>
+</property>
+
+
+<property>
+  <name>hive.vectorized.execution.enabled</name>
+  <value>true</value>
+</property>
+<!-- tez / mr -->
+<property>
+  <name>hive.execution.engine</name>
+  <value>tez</value>
+</property>
+<property>
+  <name>hive.tez.auto.reducer.parallelism</name>
+  <value>true</value>
+</property>
+
+
+<!-- no in default ??? -->
+<!--
+<property>
+  <name>hive.exec.local.cache</name>
+  <value>true</value>
+</property>
+-->
+
+<property>
+  <name>hive.server2.tez.default.queues</name>
+  <value>default</value>
+</property>
+<property>
+  <name>hive.server2.tez.initialize.default.sessions</name>
+  <value>true</value>
+</property>
+
+
+
+
+
+
+<property>
+  <name>hive.prewarm.enabled</name>
+  <value>false</value>
+</property>
+<property>
+  <name>hive.rpc.query.plan</name>
+  <value>true</value>
+</property>
+
+
+
+<!--
+<property>
+  <name>hive.default.fileformat</name>
+  <value>Orc</value>
+</property>
+<property>
+  <name>hive.query.result.fileformat</name>
+  <value>Orc</value>
+</property>
+-->
+
+<!-- concurrency -->
+<property>
+  <name>hive.support.concurrency</name>
+  <value>true</value>
+</property>
+
+<!-- compactor org.apache.hadoop.hive.ql.lockmgr.DummyTxnManager / org.apache.hadoop.hive.ql.lockmgr.DbTxnManager -->
+<property>
+  <name>hive.txn.manager</name>
+  <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
+</property>
+<property>
+  <name>hive.compactor.initiator.on</name>
+  <value>true</value>
+</property>
+<property>
+  <name>hive.compactor.worker.threads</name>
+  <value>1</value>
+</property>
+
+
+<!-- ORC conf -->
+<property>
+  <name>hive.orc.splits.include.file.footer</name>
+  <value>true</value>
+</property>
+<property>
+  <name>hive.exec.orc.default.compress</name>
+  <value>SNAPPY</value>
+</property>
+<!--
+<property>
+  <name>hive.exec.orc.default.block.size</name>
+  <value>134217728</value>
+  <description>128MB = taille de block dans le HDFS (tres important !!!)</description>
+</property>
+-->
+<!--
+<property>
+  <name>hive.exec.orc.memory.pool</name>
+  <value>0.5</value>
+</property>
+-->
+<property>
+  <name>hive.exec.orc.zerocopy</name>
+  <value>true</value>
+  <!-- impacte les performances false a l air mieux -->
+</property>
+
+
+
+
+<property>
+  <name>hive.fetch.task.aggr</name>
+  <value>true</value>
+</property>
+
+</configuration>

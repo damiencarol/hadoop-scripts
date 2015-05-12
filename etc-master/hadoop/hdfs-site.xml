@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+
+  <property>
+    <name>dfs.datanode.data.dir</name>
+    <value>
+            [DISK]file:///mnt/disk1/tmp-hadoop-2/tmp,
+            [DISK]file:///mnt/disk2/tmp-hadoop-2/tmp,
+            [DISK]file:///mnt/disk3/tmp-hadoop-2/tmp,
+            [DISK]file:///mnt/disk4/tmp-hadoop-2/tmp,
+            [DISK]file:///mnt/disk5/tmp-hadoop-2/tmp,
+            [DISK]file:///mnt/disk6/tmp-hadoop-2/tmp,
+            [DISK]file:///mnt/disk7/tmp-hadoop-2/tmp
+    </value>
+  </property>
+<!--
+  <property>
+     <name>dfs.webhdfs.enabled</name>
+     <value>true</value>
+  </property>
+
+  <property>
+    <name>dfs.blocksize</name>
+    <value>64m</value>
+  </property>
+-->
+  <property>
+    <name>dfs.datanode.synconclose</name>
+    <value>true</value>
+  </property>
+  
+  <property>
+    <name>dfs.permissions.enabled</name>
+    <value>false</value>
+  </property>
+
+  <property>
+    <name>dfs.client.read.shortcircuit</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>dfs.domain.socket.path</name>
+    <value>/var/lib/hadoop-hdfs/dn_socket</value>
+  </property>
+
+<property>
+  <name>dfs.support.append</name>
+  <value>true</value>
+</property>
+
+<!--
+<property>
+  <name>dfs.datanode.max.locked.memory</name>
+  <value>1073741824</value>
+</property>
+-->
+        <property>
+                <name>dfs.datanode.max.locked.memory</name>
+                <!-- <value>4294967296</value> -->
+                <value>17179869184</value>
+        </property>
+</configuration>
