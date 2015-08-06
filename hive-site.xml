@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+  <!-- METASTORE -->
+  <property>
+    <name>javax.jdo.option.ConnectionURL</name>
+    <value>jdbc:mysql://nc-h07/metastore?protocol=tcp</value>
+  </property>
+  <property>
+    <name>javax.jdo.option.ConnectionDriverName</name>
+    <value>com.mysql.jdbc.Driver</value>
+  </property>
+  <property>
+    <name>javax.jdo.option.ConnectionUserName</name>
+    <value>hiveuser</value>
+  </property>
+  <property>
+    <name>javax.jdo.option.ConnectionPassword</name>
+    <value>mvsmt4521</value>
+  </property>
+  <property>
+    <name>hive.metastore.warehouse.dir</name>
+    <value>hdfs://nc-h07/user/hive/warehouse</value>
+  </property>
+  <property>
+    <name>hive.metastore.uris</name>
+    <value>thrift://nc-h07:9083</value>
+    <description>IP address (or fully-qualified domain name) and port of the metastore host</description>
+  </property>
+
+  <!-- STATISTICS-->
+  <property>
+    <name>hive.stats.jdbcdriver</name>
+    <value>com.mysql.jdbc.Driver</value>
+    <description>The JDBC driver for the database that stores temporary hive statistics.</description>
+  </property>
+  <property>
+    <name>hive.stats.dbconnectionstring</name>
+    <value>jdbc:mysql://nc-h07/metastore?protocol=tcp&amp;user=hiveuser&amp;password=mvsmt4521</value>
+    <description>The default connection string for the database that stores temporary hive statistics.</description>
+  </property>
+  <property>
+    <name>hive.stats.reliable</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hive.stats.fetch.column.stats</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hive.compute.query.using.stats</name>
+    <value>true</value>
+  </property>
+
+  <!-- TRANSACTION & COMPACTOR -->
+  <property>
+    <name>hive.txn.manager</name>
+    <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
+  </property>
+  <property>
+    <name>hive.compactor.initiator.on</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hive.compactor.worker.threads</name>
+    <value>1</value>
+  </property>
+  <property>
+    <name>hive.support.concurrency</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hive.enforce.bucketing</name>
+    <value>true</value>
+    <description>Whether bucketing is enforced. If true, while inserting into the table, bucketing is enforced.</description>
+  </property>
+  <property>
+    <name>hive.enforce.sorting</name>
+    <value>true</value>
+    <description>Whether sorting is enforced. If true, while inserting into the table, sorting is enforced.</description>
+  </property>
+
+  <!-- ORC -->
+  <property>
+    <name>hive.orc.splits.include.file.footer</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hive.exec.orc.default.compress</name>
+    <value>SNAPPY</value>
+  </property>
+  <property>
+    <name>hive.exec.orc.zerocopy</name>
+    <value>true</value>
+  </property>
+
+  <!-- TEZ -->
+  <property>
+    <name>hive.execution.engine</name>
+    <value>tez</value>
+  </property>
+  <property>
+    <name>hive.jar.directory</name>
+    <value>/user/hduser/.hiveJars</value>
+  </property>
+  <property>
+    <name>hive.tez.auto.reducer.parallelism</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hive.convert.join.bucket.mapjoin.tez</name>
+    <value>true</value>
+  </property>
+
+  <!-- VECTORIZATION -->
+  <property>
+    <name>hive.vectorized.execution.enabled</name>
+    <value>true</value>
+  </property>
+
+  <!-- QUERY AND DDL EXECUTION -->
+  <property>
+    <name>hive.fetch.task.aggr</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hive.exec.temporary.table.storage</name>
+    <value>memory</value>
+  </property>
+  <property>
+    <name>hive.explain.user</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hive.exec.parallel</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hive.exec.dynamic.partition.mode</name>
+    <value>nonstrict</value>
+  </property>
+  <property>
+    <name>hive.exec.max.dynamic.partitions.pernode</name>
+    <value>1000</value>
+  </property>
+  <property>
+    <name>hive.exec.max.dynamic.partitions</name>
+    <value>10000</value>
+  </property>
+  <property>
+    <name>hive.exec.reducers.bytes.per.reducer</name>
+    <value>8000000</value>
+  </property>
+</configuration>
